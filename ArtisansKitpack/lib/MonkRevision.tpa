@@ -727,7 +727,6 @@ A brutal, specialized advancement of the Quivering Palm technique that can be ma
 COPY_EXISTING ~C0MN#H12.SPL~ OVERRIDE
 SAY NAME1 ~Improved Diamond Soul~
 SAY UNIDENTIFIED_DESC ~Improved Diamond Soul
-The monk's mastery of ki allows them to negate even the strongest of magical effects. Each time this ability is chosen, the monk permanently gains +10% Magic Resistance and +1 to Saving Throws.
 
 Improved Diamond Soul may be taken up to a maximum of two times.~
 
