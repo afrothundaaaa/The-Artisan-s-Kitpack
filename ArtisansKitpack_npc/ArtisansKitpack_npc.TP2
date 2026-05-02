@@ -623,14 +623,11 @@ BEGIN ~Artisan's Kitpack: Red Wizard Mage Kit for Edwin~
 REQUIRE_PREDICATE (GAME_IS ~BGEE BG2EE EET~) ~This mod must be installed on BG:EE, BG2EE or EET.~
 INCLUDE ~ArtisansKitpack/lib/redwizard.tpa~
 
-BEGIN ~Skip~ DESIGNATED 99999
-SUBCOMPONENT ~Artisan's Kitpack: Make Imoen a~
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-ArtisansKitpack.tp2~ ~7001~) OR (MOD_IS_INSTALLED ~Setup-ArtisansKitpack.tp2~ ~7003~) ~~
-
 BEGIN ~Rogue Archer~ DESIGNATED 7101
 SUBCOMPONENT ~Artisan's Kitpack: Make Imoen a~
   REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet~) ~This component must be installed on BG:EE, BG2:EE or EET.~
-  REQUIRE_COMPONENT ~Setup-ArtisansKitpack.tp2~ ~7001~ ~The Rogue Archer Kit must be installed.~
+
+ACTION_IF MOD_IS_INSTALLED ~Setup-ArtisansKitpack.tp2~ ~7001~ THEN BEGIN
     COPY_EXISTING_REGEXP GLOB ~.+\.CRE~ ~override~
       READ_ASCII DEATHVAR "dv" (32) NULL
       PATCH_IF ((~%dv%~ STR_EQ ~IMOEN~) OR (~%dv%~ STR_EQ ~IMOEN2~)) BEGIN
@@ -640,11 +637,15 @@ SUBCOMPONENT ~Artisan's Kitpack: Make Imoen a~
       	// do things here
       END
       BUT_ONLY
+      END ELSE BEGIN
+        PRINT ~Rogue Archer Kit is not present. This component will be installed, but will do nothing without the kit installed before it.~
+        END
 
 BEGIN ~Trickster~ DESIGNATED 7102
 SUBCOMPONENT ~Artisan's Kitpack: Make Imoen a~
   REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet~) ~This component must be installed on BG:EE, BG2:EE or EET.~
-  REQUIRE_COMPONENT ~Setup-ArtisansKitpack.tp2~ ~7003~ ~The Trickster Kit must be installed.~
+  
+ACTION_IF MOD_IS_INSTALLED ~Setup-ArtisansKitpack.tp2~ ~7003~ THEN BEGIN
     COPY_EXISTING_REGEXP GLOB ~.+\.CRE~ ~override~
       READ_ASCII DEATHVAR "dv" (32) NULL
       PATCH_IF ((~%dv%~ STR_EQ ~IMOEN~) OR (~%dv%~ STR_EQ ~IMOEN2~)) BEGIN
@@ -654,6 +655,10 @@ SUBCOMPONENT ~Artisan's Kitpack: Make Imoen a~
       	// do things here
       END
       BUT_ONLY
+      BUT_ONLY
+      END ELSE BEGIN
+        PRINT ~Trickster Kit is not present. This component will be installed, but will do nothing without the kit installed before it.~
+        END
 
 BEGIN ~Artisan's Kitpack: Give Hexxat the Invisible Blade Kit~ DESIGNATED 7104
   REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) ~This component must be installed on BG2:EE or EET.~
