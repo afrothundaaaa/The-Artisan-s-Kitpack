@@ -102,7 +102,7 @@ COPY_EXISTING ~c0_charbase_temporary.CRE~ ~OVERRIDE~
    LPF ADD_CRE_EFFECT INT_VAR opcode = 326 parameter1 = 19 parameter2 = 105 target = 1 timing = 4 duration = 1 STR_VAR resource = C0PR#AT1 END
 
 COPY_EXISTING ~c0_charbase_temporary.cre~ ~override/%MOD_FOLDER%/temp/CHARBASE.CRE~
-COPY_EXISTING ~%MOD_FOLDER%/temp~ ~OVERRIDE~
+COPY_EXISTING ~override/%MOD_FOLDER%/temp~ ~OVERRIDE~
 
 ACTION_FOR_EACH description IN 
     BGCLATXT
