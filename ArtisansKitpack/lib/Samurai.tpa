@@ -517,6 +517,18 @@ COPY_EXISTING ~C0SAM03D.spl~ ~override~
 		parameter1 = RESOLVE_STR_REF (~Iaijutsu Strike~)
 END
 
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) THEN BEGIN // protects against invalid files
+    READ_BYTE 0x1f "usa2"
+    READ_BYTE 0x29 "kit1"
+    PATCH_IF ((("%kit1%" BAND 0b01000000) = 0b01000000) AND // if unusable by fighters and barbarians
+              (("%usa2%" BAND 0b00001000) = 0b00001000)) THEN BEGIN
+      WRITE_BYTE 0x29 ("%kit1%" BAND 0b10111111) //remove redundant barb flag
+      LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 319 target = 1 timing = 2 power = 0 parameter1 = 0 parameter2 = 5 special = RESOLVE_STR_REF (~Barbarian~) END
+    END
+  END
+  BUT_ONLY
+
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
       READ_BYTE    0x1E row1
@@ -525,10 +537,6 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
       READ_BYTE    0x21 row4
       READ_BYTE    0x29 kit_row1
     READ_BYTE    0x18 twohanded
-    PATCH_IF !((row2 AND 0b00001000) = 0b00000000) BEGIN 
-        WRITE_BYTE    0x29 (kit_row1 BAND 0b10111111)
-        LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 319 target = 1 timing = 2 power = 0 parameter1 = 0 parameter2 = 5 special = RESOLVE_STR_REF (~Barbarian~) END
-    END
     PATCH_IF ((twohanded BAND 0b00000010) = 0b00000000) BEGIN 
       READ_SHORT    0x22 appearance 
       PATCH_IF (appearance = 22593) OR (appearance = 19523) OR (appearance = 17476) OR (appearance = 12358) OR (appearance = 12614) OR (appearance = 12870) OR (appearance = 13126) OR (appearance = 19526) OR (appearance = 21318) OR (appearance = 12627) OR (appearance = 13139) OR (appearance = 12877) OR (appearance = 17229) OR (appearance = 21325) OR (appearance = 12371) OR (appearance = 17235) OR (appearance = 21331) OR (appearance = 18519) BEGIN
