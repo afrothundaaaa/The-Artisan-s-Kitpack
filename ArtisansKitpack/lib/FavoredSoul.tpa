@@ -37,7 +37,7 @@ LAF ADD_KIT_EX
 	
     lower         = RESOLVE_STR_REF(~Favored Soul~)
 	
-    help          = RESOLVE_STR_REF(~FAVORED SOUL: The favored soul follows the path of the cleric but is able to channel divine power with surprising ease. <PRO_HESHE> is able to perform the same tasks as <PRO_HISHER> fellow divine spellcasters but with virtually no study. Favored souls cast their spells naturally, as much through force of personality as through study. Though this gives them extraordinary divine abilities no normal person could ever match, they see their gift as a call to action, and so in some ways may lag behind their more studious colleagues. Favored souls cast divine spells by means of an innate connection rather than through laborious training and prayer, so their divine connection is natural rather than learned. Mortals who perform great services to deities, devoting their lives and work to the cause of their god or goddess, sometimes become the Chosen of that deity.
+    help          = RESOLVE_STR_REF(~FAVORED SOUL: The favored soul follows the path of the cleric but is able to channel divine power with surprising ease. They are able to perform the same tasks as their fellow divine spellcasters but with virtually no study. Favored souls cast their spells naturally, as much through force of personality as through study. Though this gives them extraordinary divine abilities no normal person could ever match, they see their gift as a call to action, and so in some ways may lag behind their more studious colleagues. Favored souls cast divine spells by means of an innate connection rather than through laborious training and prayer, so their divine connection is natural rather than learned. Mortals who perform great services to deities, devoting their lives and work to the cause of their god or goddess, sometimes become the Chosen of that deity.
 	
 CLASS FEATURES:
 
@@ -57,7 +57,7 @@ CLASS FEATURES:
 – 18th level: The Favored Soul becomes immune to non-enchanted weapons and 25% resistance to crushing, slashing, piercing and missile damage.
 – Hit Die: d8~)
 	
-    briefdesc     = RESOLVE_STR_REF(~FAVORED SOUL: The favored soul follows the path of the cleric but is able to channel divine power with surprising ease. She is able to perform the same tasks as her fellow divine spellcasters but with virtually no study. Favored souls cast their spells naturally, as much through force of personality as through study.~)
+    briefdesc     = RESOLVE_STR_REF(~FAVORED SOUL: The favored soul follows the path of the cleric but is able to channel divine power with surprising ease. They are able to perform the same tasks as their fellow divine spellcasters but with virtually no study. Favored souls cast their spells naturally, as much through force of personality as through study.~)
 	
 	// fallen = 0
 	
@@ -169,7 +169,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
     PATCH_IF ((cleric BAND 0b10000000) = 0b00000000) AND ((druid BAND 0b01000000) = 0b01000000) BEGIN 
       READ_SHORT    0x1C type //reads the byte containing item type
       READ_BYTE    0x21 row4
-      PATCH_IF (type = 2) BEGIN // if it is armor
+      PATCH_IF (type = 2) OR (type = 12) BEGIN // if it is armor or shield
         WRITE_BYTE    0x21 (row4 BAND 0b10111111)
       END
         LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 319 target = 1 parameter1 = 0 parameter2 = IS_FAVORED_SOUL timing = 2 power = 2 special = RESOLVE_STR_REF (~Druid

@@ -869,7 +869,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
         LPF DELETE_EFFECT INT_VAR match_opcode = 319 match_parameter2 = C0_PROFICIENCYCLUB END
         LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 319 target = 2 parameter1 = 0 parameter2 = C0_PROFICIENCYCLUB timing = 2 power = 3 END
       END
-      PATCH_IF (type = 5) AND (((row1 BAND 0b01000000) = 0b00000000) AND ((row2 BAND 0b00001000) = 0b00000000) AND ((row3 BAND 0b01110000) = 0b00000000) AND ((row4 BAND 0b00000000) = 0b00000000) AND !(((row1 BAND 0b11000000) = 0b00000000) AND ((row2 BAND 0b11111111) = 0b00000000) AND ((row3 BAND 0b01111111) = 0b00000000) AND ((row4 BAND 0b01100000) = 0b00000000))
+      PATCH_IF ((type = 5) OR (type = 31)) AND (((row1 BAND 0b01000000) = 0b00000000) AND ((row2 BAND 0b00001000) = 0b00000000) AND ((row3 BAND 0b01110000) = 0b00000000) AND ((row4 BAND 0b00000000) = 0b00000000) AND !(((row1 BAND 0b11000000) = 0b00000000) AND ((row2 BAND 0b11111111) = 0b00000000) AND ((row3 BAND 0b01111111) = 0b00000000) AND ((row4 BAND 0b01100000) = 0b00000000))
                                         ) BEGIN // if it is arrows
         WRITE_BYTE    0x1E (row1 BAND 0b00111111) 
         WRITE_BYTE    0x1F (row2 BAND 0b00000000)
