@@ -18,3 +18,15 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~C0PR#EF.BCS~ BEGIN
     END
 
 END
+
+APPEND ~splprot.2da~ ~C0_KIT_CHECK 152 -1 1~ UNLESS ~C0_KIT_CHECK ~
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols // amount of columns
+	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
+	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~C0_KIT_CHECK~ BEGIN
+	    SET C0_KIT_CHECK = %row%
+	  END
+	PRETTY_PRINT_2DA
+	END
