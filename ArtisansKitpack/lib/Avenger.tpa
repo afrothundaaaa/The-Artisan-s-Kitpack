@@ -29,6 +29,10 @@ COPY_EXISTING ~CLABDR01.2DA~ ~OVERRIDE/CLABDR04.2DA~
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 15 STR_VAR f_Entry = AP_C0D4_3 END
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 15 STR_VAR f_Entry = AP_C0D4_4 END
 
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 19 STR_VAR f_Entry = GA_SPCL632 END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 19 STR_VAR f_Entry = GA_SPCL633 END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 19 STR_VAR f_Entry = GA_SPCL634 END
+
   PRETTY_PRINT_2DA
 
 OUTER_SPRINT kit_description ~AVENGER: A member of a special sect within the druidic order, a Druid of this type is dedicated to fighting those who would defile nature. Avengers have powers the average Druid does not—additional abilities that have been earned through extensive rituals, a process that is very physically draining.
