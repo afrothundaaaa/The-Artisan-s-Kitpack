@@ -2,6 +2,39 @@
 COPY ~%MOD_FOLDER%/Druid/Shapeshifter/2DAs~ ~OVERRIDE~
 COPY ~%MOD_FOLDER%/Druid/Shapeshifter/SPELLS~ ~OVERRIDE~
 
+COPY_EXISTING ~CLABDR01.2DA~ ~OVERRIDE/CLABDR03.2DA~
+  REPLACE_TEXTUALLY ~GA_SPCL107~ ~**** ~
+  REPLACE_TEXTUALLY ~GA_SPCL101~ ~**** ~
+  REPLACE_TEXTUALLY ~GA_SPCL108~ ~**** ~
+  REPLACE_TEXTUALLY ~GA_SPCL112~ ~**** ~
+  REPLACE_TEXTUALLY ~GA_SPCL113~ ~**** ~
+  REPLACE_TEXTUALLY ~GA_SPCL114~ ~**** ~
+  REPLACE_TEXTUALLY ~GA_SPCL611~ ~**** ~
+  REPLACE_TEXTUALLY ~GA_SPCL612~ ~**** ~
+  REPLACE_TEXTUALLY ~GA_SPCL613~ ~**** ~
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 f_Increment = 1 STR_VAR f_Entry = AP_C0SS-S END
+
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = GA_C0SS-0 END
+
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = GA_C0SS-W END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 6 STR_VAR f_Entry = GA_C0SS-W END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 9 STR_VAR f_Entry = GA_C0SS-W END
+
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 4 STR_VAR f_Entry = GA_C0SS-F END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 7 STR_VAR f_Entry = GA_C0SS-F END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 10 STR_VAR f_Entry = GA_C0SS-F END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 13 STR_VAR f_Entry = GA_C0SS-F END
+
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 8 STR_VAR f_Entry = GA_C0SS-R END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 13 STR_VAR f_Entry = GA_C0SS-R END
+  
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 12 STR_VAR f_Entry = GA_C0SS-W0 END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 12 STR_VAR f_Entry = GA_C0SS-W2 END
+  
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 15 STR_VAR f_Entry = GA_C0SS-F0 END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 15 STR_VAR f_Entry = GA_C0SS-F2 END
+  PRETTY_PRINT_2DA
+
 LAF ~GET_KIT_STRREF~ STR_VAR kit_name = ~SHAPESHIFTER~ RET kit_strref END
 STRING_SET_EVALUATE kit_strref ~SHAPESHIFTER: This Druid is not called Shapeshifter because <PRO_HESHE> has access to a great variety of forms, but rather because of <PRO_HISHER> complete dedication to a single alternate form. This Druid has willingly allowed <PRO_HIMHER>self to become infected with lycanthropy, but due to intense study and training <PRO_HESHE> has the ability to control <PRO_HISHER> affliction. The creature <PRO_HESHE> becomes is that of the werewolf, the most famous of the lycanthrope shape changers.
 
