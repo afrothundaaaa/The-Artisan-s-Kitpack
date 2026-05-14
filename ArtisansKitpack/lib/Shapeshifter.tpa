@@ -14,7 +14,7 @@ COPY_EXISTING ~CLABDR01.2DA~ ~OVERRIDE/CLABDR03.2DA~
   REPLACE_TEXTUALLY ~GA_SPCL613~ ~**** ~
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 f_Increment = 1 STR_VAR f_Entry = AP_C0SS-S END
 
-  LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = GA_C0SS-0 END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = AP_C0SS-0 END
 
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = GA_C0SS-W END
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 6 STR_VAR f_Entry = GA_C0SS-W END
@@ -25,13 +25,13 @@ COPY_EXISTING ~CLABDR01.2DA~ ~OVERRIDE/CLABDR03.2DA~
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 10 STR_VAR f_Entry = GA_C0SS-F END
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 13 STR_VAR f_Entry = GA_C0SS-F END
 
-  LPF set_clab_2da_entries INT_VAR f_MinLevel = 8 STR_VAR f_Entry = GA_C0SS-R END
-  LPF set_clab_2da_entries INT_VAR f_MinLevel = 13 STR_VAR f_Entry = GA_C0SS-R END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 8 STR_VAR f_Entry = AP_C0SS-R END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 13 STR_VAR f_Entry = AP_C0SS-R END
   
-  LPF set_clab_2da_entries INT_VAR f_MinLevel = 12 STR_VAR f_Entry = GA_C0SS-W0 END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 12 STR_VAR f_Entry = AP_C0SS-W0 END
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 12 STR_VAR f_Entry = GA_C0SS-W2 END
   
-  LPF set_clab_2da_entries INT_VAR f_MinLevel = 15 STR_VAR f_Entry = GA_C0SS-F0 END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 15 STR_VAR f_Entry = AP_C0SS-F0 END
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 15 STR_VAR f_Entry = GA_C0SS-F2 END
   PRETTY_PRINT_2DA
 

@@ -13,6 +13,10 @@ COPY_EXISTING ~CLABDR01.2DA~ ~OVERRIDE/CLABDR04.2DA~
 
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 3 STR_VAR f_Entry = AP_C0D4_5A END
 
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 7 STR_VAR f_Entry = GA_SPCL632 END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 7 STR_VAR f_Entry = GA_SPCL633 END
+  LPF set_clab_2da_entries INT_VAR f_MinLevel = 7 STR_VAR f_Entry = GA_SPCL634 END
+
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 9 STR_VAR f_Entry = AP_C0D4_6A END
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 9 STR_VAR f_Entry = AP_C0D4_1 END
   LPF set_clab_2da_entries INT_VAR f_MinLevel = 9 STR_VAR f_Entry = AP_C0D4_2 END
