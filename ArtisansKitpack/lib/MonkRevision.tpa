@@ -1296,6 +1296,13 @@ WRITE_SHORT 0x1C 3
 COPY_EXISTING ~SPWI414.spl~ ~override/C0DM404.spl~
 WRITE_SHORT 0x1C 3 
 
+COPY_EXISTING_REGEXP GLOB ~.+\.CRE~ ~override~
+    READ_BYTE 0x234 level1
+      READ_ASCII DEATHVAR "dv" (32) NULL
+      PATCH_IF (~%dv%~ STR_EQ ~RASAAD~) BEGIN
+      WRITE_BYTE 0x48 10
+    END
+    
 ///////////////////////////////////////////////////////////////////////////
 // Update Kit Descriptions                                               //
 ///////////////////////////////////////////////////////////////////////////
