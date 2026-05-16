@@ -817,6 +817,8 @@ LPF patch_add_hla STR_VAR 2da_row = ~C0FAV1~ ability = ~GA_C0FS#H1~ num_allowed 
 LPF patch_add_hla STR_VAR 2da_row = ~C0FAV2~ ability = ~GA_C0FS#H2~ num_allowed = 1 excluded_by = ~GA_C0FS#H1~ alignment_restrict = ~ALL_GOOD~ END
 LPF patch_add_hla STR_VAR 2da_row = ~C0FAV3~ ability = ~GA_C0FS#06~ num_allowed = 5 END	
 
+ACTION_IF FILE_EXISTS_IN_GAME ~WISH25.DLG~ THEN BEGIN
+
 COPY_EXISTING ~C0FS#06.spl~ ~override~
 SAY NAME1 ~Miracle~
 SAY UNIDENTIFIED_DESC ~Miracle
@@ -855,3 +857,5 @@ WRITE_ASCII 0x280 ~C0FS#06~ #32 // death variable
 
 COMPILE ~%MOD_FOLDER%/FavoredSoul/dialogue/miracle.d~
 COMPILE ~%MOD_FOLDER%/FavoredSoul/scripts/C0FS#06.baf~
+
+END
