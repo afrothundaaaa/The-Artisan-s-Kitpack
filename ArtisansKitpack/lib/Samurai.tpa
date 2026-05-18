@@ -3,6 +3,38 @@ COPY ~%MOD_FOLDER%/Fighter/Samurai/BAMS~ ~OVERRIDE~
 COPY ~%MOD_FOLDER%/Fighter/Samurai/spells~ ~OVERRIDE~
 COPY ~%MOD_FOLDER%/bmp~ ~OVERRIDE~
 
+COPY_EXISTING ~CLABFI01.2DA~ ~OVERRIDE/C0SAMURA.2DA~
+	REPLACE_TEXTUALLY ~GA_C0FIG01~ ~**** ~ // POWER ATTACK
+	REPLACE_TEXTUALLY ~GA_C0FIG02~ ~**** ~ // EXPERTISE
+	REPLACE_TEXTUALLY ~GA_C0ARC03~ ~**** ~ // RAPID SHOT
+	REPLACE_TEXTUALLY ~AP_C0ARC03Z~ ~**** ~
+	// REPLACE_TEXTUALLY ~AP_C0FIG04~ ~**** ~ // SPECIALIZATION
+	REPLACE_TEXTUALLY ~AP_C0FIG03~ ~**** ~ // IMPROVED INITATIVE
+
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = AP_C0SAM01 END
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = AP_C0SAM02 END
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = GA_C0CAV03 END
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 8 f_Increment = 8 STR_VAR f_Entry = GA_C0CAV03 END
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 14 STR_VAR f_Entry = GA_C0SAM04 END
+
+ 	PRETTY_PRINT_2DA
+
+COPY_EXISTING ~CLABFI01.2DA~ ~OVERRIDE/C0RONIN.2DA~
+	REPLACE_TEXTUALLY ~GA_C0FIG01~ ~**** ~ // POWER ATTACK
+	REPLACE_TEXTUALLY ~GA_C0FIG02~ ~**** ~ // EXPERTISE
+	REPLACE_TEXTUALLY ~GA_C0ARC03~ ~**** ~ // RAPID SHOT
+	REPLACE_TEXTUALLY ~AP_C0ARC03Z~ ~**** ~
+	// REPLACE_TEXTUALLY ~AP_C0FIG04~ ~**** ~ // SPECIALIZATION
+	REPLACE_TEXTUALLY ~AP_C0FIG03~ ~**** ~ // IMPROVED INITATIVE
+
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = AP_C0SAM01 END
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = AP_C0SAM05 END
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 STR_VAR f_Entry = GA_C0AS#P1 END
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 6 f_Increment = 6 STR_VAR f_Entry = GA_C0AS#P1 END
+	LPF set_clab_2da_entries INT_VAR f_MinLevel = 14 STR_VAR f_Entry = GA_C0SAM04 END
+
+ 	PRETTY_PRINT_2DA
+
 INCLUDE ~%MOD_FOLDER%/effects/poison_weapon.tpa~
 
 OUTER_SPRINT kit_description_1 ~SAMURAI: A samurai is first and foremost a warrior, one who lives and dies by his sword. In doing so, the samurai gains honor and experience, increasing in power and importance in the world. However, bushido (the code of the samurai) is hard and unrelenting. A samurai must be willing to accept his own death at any moment.

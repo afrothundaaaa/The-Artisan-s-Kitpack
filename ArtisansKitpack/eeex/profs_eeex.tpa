@@ -966,7 +966,7 @@ COPY_EXISTING ~KITLIST.2DA~ ~override~
       INNER_ACTION BEGIN
       COPY_EXISTING ~%kit_clab%.2DA~ override
         REPLACE_TEXTUALLY ~AP_C0PR#CL~ ~****      ~
-        LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 f_MaxLevel = 1 STR_VAR f_Entry = AP_C0PR#CL END
+        LPF set_clab_2da_entries INT_VAR f_MinLevel = 1 f_Increment = 1 STR_VAR f_Entry = AP_C0PR#CL END
         PRETTY_PRINT_2DA
       END
   END

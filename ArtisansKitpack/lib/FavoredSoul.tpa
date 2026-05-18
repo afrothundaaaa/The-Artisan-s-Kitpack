@@ -151,6 +151,8 @@ LAF ADD_IDS_ENTRY INT_VAR minValue = 1 preferredValue = 205 STR_VAR idsFile = "s
 
 OUTER_SET IS_FAVORED_SOUL = IDS_OF_SYMBOL (~STATS~ ~IS_FAVORED_SOUL~)
 
+OUTER_SET C0_MONK_EQUIPMENT = 0
+
 APPEND ~splprot.2da~ ~IS_FAVORED_SOUL %IS_FAVORED_SOUL% 1 1~ UNLESS ~IS_FAVORED_SOUL %IS_FAVORED_SOUL% 1 1~
 COPY_EXISTING ~splprot.2da~ ~override~ 
 	COUNT_2DA_COLS cols // amount of columns
@@ -173,6 +175,7 @@ COPY_EXISTING ~splprot.2da~ ~override~
 
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ //copies all item files
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
+		LPF DELETE_EFFECT INT_VAR silent = 1 match_opcode = 319 match_parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0_FAVORED_SOUL~) match_parameter2 = 9 match_power = 0 END
         LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 319 match_parameter1 = 21 match_parameter2 = 5 parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0_FAVORED_SOUL~) parameter2 = 9 match_power = 1 power = 0 END
         LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 319 match_parameter1 = 21 match_parameter2 = 5 opcode = 0 parameter1 = 0 parameter2 = 0 special = 0 power = 0 STR_VAR resource = C0HTD_NM END
         LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 319 match_parameter2 = C0_MONK_EQUIPMENT parameter1 = IDS_OF_SYMBOL (~KIT~ ~C0_FAVORED_SOUL~) parameter2 = 9 timing = 2 power = 0 special = RESOLVE_STR_REF (~Favored Soul~) END

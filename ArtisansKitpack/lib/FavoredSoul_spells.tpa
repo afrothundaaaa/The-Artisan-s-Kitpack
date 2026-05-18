@@ -53,6 +53,7 @@ BUT_ONLY
 	    SET IS_FAVORED_SOUL = %row%
 	  END
 	END
+OUTER_SET C0_MONK_EQUIPMENT = 0
 COPY_EXISTING ~splprot.2da~ ~override~ 
 	COUNT_2DA_COLS cols // amount of columns
 	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
