@@ -620,7 +620,7 @@ REQUIRE_COMPONENT ~Setup-ArtisansKitpack.tp2~ ~5001~ ~The Elementalist Kit must 
       END
       BUT_ONLY
 
-BEGIN ~Artisan's Kitpack: Red Wizard Mage Kit for Edwin~
+BEGIN ~Artisan's Kitpack: Red Wizard Mage Kit for Edwin~ DESIGNATED 5102
 REQUIRE_PREDICATE (GAME_IS ~BGEE BG2EE EET~) ~This mod must be installed on BG:EE, BG2EE or EET.~
 INCLUDE ~%MOD_FOLDER%/lib/redwizard.tpa~
 
