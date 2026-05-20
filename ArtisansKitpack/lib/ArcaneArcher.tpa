@@ -1,5 +1,3 @@
-
-COPY ~%MOD_FOLDER%/Fighter/ArcaneArcher/2das~ ~override~
 COPY ~%MOD_FOLDER%/Fighter/ArcaneArcher/spells~ ~override~
 
 COPY_EXISTING ~CLABFI01.2DA~ ~OVERRIDE/C0AA.2DA~

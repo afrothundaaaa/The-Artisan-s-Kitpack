@@ -1,4 +1,3 @@
-COPY ~%MOD_FOLDER%/Ranger/DarkHunter/2da~ ~override~
 COPY ~%MOD_FOLDER%/Ranger/DarkHunter/bams~ ~override~
 COPY ~%MOD_FOLDER%/Ranger/DarkHunter/spells~ ~override~
 
